@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FirstAidJournalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FirstAidJournalModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="FirstAidJournalModel.Store.Activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ActivityHelper" EntityType="FirstAidJournalModel.Store.ActivityHelper" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Area" EntityType="FirstAidJournalModel.Store.Area" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="FirstAidJournalModel.Store.Event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTreatment" EntityType="FirstAidJournalModel.Store.EventTreatment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Injury" EntityType="FirstAidJournalModel.Store.Injury" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Person" EntityType="FirstAidJournalModel.Store.Person" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="FirstAidJournalModel.Store.Team" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamMember" EntityType="FirstAidJournalModel.Store.TeamMember" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Treatment" EntityType="FirstAidJournalModel.Store.Treatment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TreatmentCategory" EntityType="FirstAidJournalModel.Store.TreatmentCategory" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Activity_Team" Association="FirstAidJournalModel.Store.FK_Activity_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityHelper_Activity" Association="FirstAidJournalModel.Store.FK_ActivityHelper_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ActivityHelper" EntitySet="ActivityHelper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Activity" Association="FirstAidJournalModel.Store.FK_Event_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_ActivityHelper" Association="FirstAidJournalModel.Store.FK_Event_ActivityHelper">
+            <End Role="ActivityHelper" EntitySet="ActivityHelper" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Area" Association="FirstAidJournalModel.Store.FK_Event_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Injury" Association="FirstAidJournalModel.Store.FK_Event_Injury">
+            <End Role="Injury" EntitySet="Injury" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Person" Association="FirstAidJournalModel.Store.FK_Event_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Team" Association="FirstAidJournalModel.Store.FK_Event_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTreatment_Event" Association="FirstAidJournalModel.Store.FK_EventTreatment_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventTreatment" EntitySet="EventTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTreatment_Treatment" Association="FirstAidJournalModel.Store.FK_EventTreatment_Treatment">
+            <End Role="Treatment" EntitySet="Treatment" />
+            <End Role="EventTreatment" EntitySet="EventTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Activity" Association="FirstAidJournalModel.Store.FK_Person_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Team" Association="FirstAidJournalModel.Store.FK_Person_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMember_Team" Association="FirstAidJournalModel.Store.FK_TeamMember_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamMember" EntitySet="TeamMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Treatment_TreatmentCategory" Association="FirstAidJournalModel.Store.FK_Treatment_TreatmentCategory">
+            <End Role="TreatmentCategory" EntitySet="TreatmentCategory" />
+            <End Role="Treatment" EntitySet="Treatment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="TeamId" Type="uniqueidentifier" />
+          <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Finished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityHelper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActivityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Initials" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="X" Type="int" Nullable="false" />
+          <Property Name="Y" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="InjuryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AreaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamId" Type="uniqueidentifier" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="ActivityId" Type="uniqueidentifier" />
+          <Property Name="OwnerId" Type="uniqueidentifier" />
+          <Property Name="HelperId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="EventTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EventId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TreatmentId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Injury">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="TeamId" Type="uniqueidentifier" />
+          <Property Name="ActivityId" Type="uniqueidentifier" />
+          <Property Name="OwnerId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Administrator" Type="bit" Nullable="false" />
+          <Property Name="Confirmed" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="TreatmentCategoryId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TreatmentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_Activity_Team">
+          <End Role="Team" Type="FirstAidJournalModel.Store.Team" Multiplicity="0..1" />
+          <End Role="Activity" Type="FirstAidJournalModel.Store.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityHelper_Activity">
+          <End Role="Activity" Type="FirstAidJournalModel.Store.Activity" Multiplicity="1" />
+          <End Role="ActivityHelper" Type="FirstAidJournalModel.Store.ActivityHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityHelper">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Activity">
+          <End Role="Activity" Type="FirstAidJournalModel.Store.Activity" Multiplicity="0..1" />
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_ActivityHelper">
+          <End Role="ActivityHelper" Type="FirstAidJournalModel.Store.ActivityHelper" Multiplicity="0..1" />
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityHelper">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="HelperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Area">
+          <End Role="Area" Type="FirstAidJournalModel.Store.Area" Multiplicity="1" />
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Injury">
+          <End Role="Injury" Type="FirstAidJournalModel.Store.Injury" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Injury">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="InjuryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Person">
+          <End Role="Person" Type="FirstAidJournalModel.Store.Person" Multiplicity="1" />
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Team">
+          <End Role="Team" Type="FirstAidJournalModel.Store.Team" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTreatment_Event">
+          <End Role="Event" Type="FirstAidJournalModel.Store.Event" Multiplicity="1" />
+          <End Role="EventTreatment" Type="FirstAidJournalModel.Store.EventTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTreatment">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTreatment_Treatment">
+          <End Role="Treatment" Type="FirstAidJournalModel.Store.Treatment" Multiplicity="1" />
+          <End Role="EventTreatment" Type="FirstAidJournalModel.Store.EventTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTreatment">
+              <PropertyRef Name="TreatmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Activity">
+          <End Role="Activity" Type="FirstAidJournalModel.Store.Activity" Multiplicity="0..1" />
+          <End Role="Person" Type="FirstAidJournalModel.Store.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Team">
+          <End Role="Team" Type="FirstAidJournalModel.Store.Team" Multiplicity="0..1" />
+          <End Role="Person" Type="FirstAidJournalModel.Store.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMember_Team">
+          <End Role="Team" Type="FirstAidJournalModel.Store.Team" Multiplicity="1" />
+          <End Role="TeamMember" Type="FirstAidJournalModel.Store.TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamMember">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Treatment_TreatmentCategory">
+          <End Role="TreatmentCategory" Type="FirstAidJournalModel.Store.TreatmentCategory" Multiplicity="1" />
+          <End Role="Treatment" Type="FirstAidJournalModel.Store.Treatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TreatmentCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatment">
+              <PropertyRef Name="TreatmentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ActivateTeam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="teamId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FirstAidJournalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FirstAidJournalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="FirstAidJournalModel.Area" />
+          <EntitySet Name="Events" EntityType="FirstAidJournalModel.Event" />
+          <EntitySet Name="EventTreatments" EntityType="FirstAidJournalModel.EventTreatment" />
+          <EntitySet Name="Injuries" EntityType="FirstAidJournalModel.Injury" />
+          <EntitySet Name="People" EntityType="FirstAidJournalModel.Person" />
+          <EntitySet Name="Treatments" EntityType="FirstAidJournalModel.Treatment" />
+          <EntitySet Name="TreatmentCategories" EntityType="FirstAidJournalModel.TreatmentCategory" />
+          <AssociationSet Name="FK_Event_Area" Association="FirstAidJournalModel.FK_Event_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Injury" Association="FirstAidJournalModel.FK_Event_Injury">
+            <End Role="Injury" EntitySet="Injuries" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTreatment_Event" Association="FirstAidJournalModel.FK_EventTreatment_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventTreatment" EntitySet="EventTreatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTreatment_Treatment" Association="FirstAidJournalModel.FK_EventTreatment_Treatment">
+            <End Role="Treatment" EntitySet="Treatments" />
+            <End Role="EventTreatment" EntitySet="EventTreatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Treatment_TreatmentCategory" Association="FirstAidJournalModel.FK_Treatment_TreatmentCategory">
+            <End Role="TreatmentCategory" EntitySet="TreatmentCategories" />
+            <End Role="Treatment" EntitySet="Treatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Person" Association="FirstAidJournalModel.FK_Event_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <EntitySet Name="Team" EntityType="FirstAidJournalModel.Team" />
+          <AssociationSet Name="FK_Event_Team" Association="FirstAidJournalModel.FK_Event_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Team" Association="FirstAidJournalModel.FK_Person_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <EntitySet Name="TeamMember" EntityType="FirstAidJournalModel.TeamMember" />
+          <AssociationSet Name="FK_TeamMember_Team" Association="FirstAidJournalModel.FK_TeamMember_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamMember" EntitySet="TeamMember" />
+          </AssociationSet>
+          <FunctionImport Name="ActivateTeam">
+            <Parameter Name="teamId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <EntitySet Name="Activity" EntityType="FirstAidJournalModel.Activity" />
+          <EntitySet Name="ActivityHelper" EntityType="FirstAidJournalModel.ActivityHelper" />
+          <AssociationSet Name="FK_Activity_Team" Association="FirstAidJournalModel.FK_Activity_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityHelper_Activity" Association="FirstAidJournalModel.FK_ActivityHelper_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ActivityHelper" EntitySet="ActivityHelper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Activity" Association="FirstAidJournalModel.FK_Event_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_ActivityHelper" Association="FirstAidJournalModel.FK_Event_ActivityHelper">
+            <End Role="ActivityHelper" EntitySet="ActivityHelper" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Activity" Association="FirstAidJournalModel.FK_Person_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="X" Type="Int32" Nullable="false" />
+          <Property Name="Y" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Events" Relationship="FirstAidJournalModel.FK_Event_Area" FromRole="Area" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PersonId" Type="Guid" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" />
+          <Property Name="InjuryId" Type="Guid" Nullable="false" />
+          <Property Name="AreaId" Type="Guid" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Area" Relationship="FirstAidJournalModel.FK_Event_Area" FromRole="Event" ToRole="Area" />
+          <NavigationProperty Name="Injury" Relationship="FirstAidJournalModel.FK_Event_Injury" FromRole="Event" ToRole="Injury" />
+          <NavigationProperty Name="EventTreatments" Relationship="FirstAidJournalModel.FK_EventTreatment_Event" FromRole="Event" ToRole="EventTreatment" />
+          <NavigationProperty Name="Person" Relationship="FirstAidJournalModel.FK_Event_Person" FromRole="Event" ToRole="Person" />
+          <Property Type="Guid" Name="TeamId" />
+          <NavigationProperty Name="Team" Relationship="FirstAidJournalModel.FK_Event_Team" FromRole="Event" ToRole="Team" />
+          <Property Type="Guid" Name="ActivityId" />
+          <NavigationProperty Name="Activity" Relationship="FirstAidJournalModel.FK_Event_Activity" FromRole="Event" ToRole="Activity" />
+          <Property Type="Guid" Name="OwnerId" Nullable="false" />
+          <Property Type="Guid" Name="HelperId" />
+          <NavigationProperty Name="ActivityHelper" Relationship="FirstAidJournalModel.FK_Event_ActivityHelper" FromRole="Event" ToRole="ActivityHelper" />
+        </EntityType>
+        <EntityType Name="EventTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EventId" Type="Guid" Nullable="false" />
+          <Property Name="TreatmentId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="FirstAidJournalModel.FK_EventTreatment_Event" FromRole="EventTreatment" ToRole="Event" />
+          <NavigationProperty Name="Treatment" Relationship="FirstAidJournalModel.FK_EventTreatment_Treatment" FromRole="EventTreatment" ToRole="Treatment" />
+        </EntityType>
+        <EntityType Name="Injury">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Events" Relationship="FirstAidJournalModel.FK_Event_Injury" FromRole="Injury" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="FirstAidJournalModel.FK_Event_Person" FromRole="Person" ToRole="Event" />
+          <Property Type="Guid" Name="TeamId" />
+          <NavigationProperty Name="Team" Relationship="FirstAidJournalModel.FK_Person_Team" FromRole="Person" ToRole="Team" />
+          <Property Type="Guid" Name="ActivityId" />
+          <Property Type="Guid" Name="OwnerId" />
+          <NavigationProperty Name="Activity" Relationship="FirstAidJournalModel.FK_Person_Activity" FromRole="Person" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="TreatmentCategoryId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="EventTreatments" Relationship="FirstAidJournalModel.FK_EventTreatment_Treatment" FromRole="Treatment" ToRole="EventTreatment" />
+          <NavigationProperty Name="TreatmentCategory" Relationship="FirstAidJournalModel.FK_Treatment_TreatmentCategory" FromRole="Treatment" ToRole="TreatmentCategory" />
+        </EntityType>
+        <EntityType Name="TreatmentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Treatments" Relationship="FirstAidJournalModel.FK_Treatment_TreatmentCategory" FromRole="TreatmentCategory" ToRole="Treatment" />
+        </EntityType>
+        <Association Name="FK_Event_Area">
+          <End Role="Area" Type="FirstAidJournalModel.Area" Multiplicity="1" />
+          <End Role="Event" Type="FirstAidJournalModel.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Injury">
+          <End Role="Injury" Type="FirstAidJournalModel.Injury" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Event" Type="FirstAidJournalModel.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Injury">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="InjuryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTreatment_Event">
+          <End Role="Event" Type="FirstAidJournalModel.Event" Multiplicity="1" />
+          <End Role="EventTreatment" Type="FirstAidJournalModel.EventTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTreatment">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTreatment_Treatment">
+          <End Role="Treatment" Type="FirstAidJournalModel.Treatment" Multiplicity="1" />
+          <End Role="EventTreatment" Type="FirstAidJournalModel.EventTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTreatment">
+              <PropertyRef Name="TreatmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Treatment_TreatmentCategory">
+          <End Role="TreatmentCategory" Type="FirstAidJournalModel.TreatmentCategory" Multiplicity="1" />
+          <End Role="Treatment" Type="FirstAidJournalModel.Treatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TreatmentCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatment">
+              <PropertyRef Name="TreatmentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Person">
+          <End Type="FirstAidJournalModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="FirstAidJournalModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="FirstAidJournalModel.FK_Event_Team" FromRole="Team" ToRole="Event" />
+          <NavigationProperty Name="Person" Relationship="FirstAidJournalModel.FK_Person_Team" FromRole="Team" ToRole="Person" />
+          <NavigationProperty Name="TeamMember" Relationship="FirstAidJournalModel.FK_TeamMember_Team" FromRole="Team" ToRole="TeamMember" />
+          <NavigationProperty Name="Activity" Relationship="FirstAidJournalModel.FK_Activity_Team" FromRole="Team" ToRole="Activity" />
+          <Property Type="Guid" Name="OwnerId" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Event_Team">
+          <End Type="FirstAidJournalModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="FirstAidJournalModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Team">
+          <End Type="FirstAidJournalModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="FirstAidJournalModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="TeamId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Boolean" Name="Administrator" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="FirstAidJournalModel.FK_TeamMember_Team" FromRole="TeamMember" ToRole="Team" />
+          <Property Type="Boolean" Name="Confirmed" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TeamMember_Team">
+          <End Type="FirstAidJournalModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="FirstAidJournalModel.TeamMember" Role="TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamMember">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="Guid" Name="TeamId" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="FirstAidJournalModel.FK_Activity_Team" FromRole="Activity" ToRole="Team" />
+          <NavigationProperty Name="ActivityHelper" Relationship="FirstAidJournalModel.FK_ActivityHelper_Activity" FromRole="Activity" ToRole="ActivityHelper" />
+          <NavigationProperty Name="Event" Relationship="FirstAidJournalModel.FK_Event_Activity" FromRole="Activity" ToRole="Event" />
+          <Property Type="Guid" Name="OwnerId" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="FirstAidJournalModel.FK_Person_Activity" FromRole="Activity" ToRole="Person" />
+          <Property Type="Boolean" Name="Finished" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityHelper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="ActivityId" Nullable="false" />
+          <Property Type="String" Name="Initials" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="FirstAidJournalModel.FK_ActivityHelper_Activity" FromRole="ActivityHelper" ToRole="Activity" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="FirstAidJournalModel.FK_Event_ActivityHelper" FromRole="ActivityHelper" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_Activity_Team">
+          <End Type="FirstAidJournalModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="FirstAidJournalModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityHelper_Activity">
+          <End Type="FirstAidJournalModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="FirstAidJournalModel.ActivityHelper" Role="ActivityHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityHelper">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Activity">
+          <End Type="FirstAidJournalModel.Activity" Role="Activity" Multiplicity="0..1" />
+          <End Type="FirstAidJournalModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_ActivityHelper">
+          <End Type="FirstAidJournalModel.ActivityHelper" Role="ActivityHelper" Multiplicity="0..1" />
+          <End Type="FirstAidJournalModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityHelper">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="HelperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Activity">
+          <End Type="FirstAidJournalModel.Activity" Role="Activity" Multiplicity="0..1" />
+          <End Type="FirstAidJournalModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FirstAidJournalModelStoreContainer" CdmEntityContainer="FirstAidJournalEntities">
+          <EntitySetMapping Name="Areas"><EntityTypeMapping TypeName="FirstAidJournalModel.Area"><MappingFragment StoreEntitySet="Area">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="X" ColumnName="X" />
+            <ScalarProperty Name="Y" ColumnName="Y" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="FirstAidJournalModel.Event"><MappingFragment StoreEntitySet="Event">
+            <ScalarProperty Name="HelperId" ColumnName="HelperId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+            <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+            <ScalarProperty Name="InjuryId" ColumnName="InjuryId" />
+            <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EventTreatments"><EntityTypeMapping TypeName="FirstAidJournalModel.EventTreatment"><MappingFragment StoreEntitySet="EventTreatment">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="TreatmentId" ColumnName="TreatmentId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Injuries"><EntityTypeMapping TypeName="FirstAidJournalModel.Injury"><MappingFragment StoreEntitySet="Injury">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="People"><EntityTypeMapping TypeName="FirstAidJournalModel.Person"><MappingFragment StoreEntitySet="Person">
+            <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Gender" ColumnName="Gender" />
+            <ScalarProperty Name="Age" ColumnName="Age" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Treatments"><EntityTypeMapping TypeName="FirstAidJournalModel.Treatment"><MappingFragment StoreEntitySet="Treatment">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="TreatmentCategoryId" ColumnName="TreatmentCategoryId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TreatmentCategories"><EntityTypeMapping TypeName="FirstAidJournalModel.TreatmentCategory"><MappingFragment StoreEntitySet="TreatmentCategory">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="FirstAidJournalModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamMember">
+            <EntityTypeMapping TypeName="FirstAidJournalModel.TeamMember">
+              <MappingFragment StoreEntitySet="TeamMember">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+                <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ActivateTeam" FunctionName="FirstAidJournalModel.Store.ActivateTeam" />
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="FirstAidJournalModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityHelper">
+            <EntityTypeMapping TypeName="FirstAidJournalModel.ActivityHelper">
+              <MappingFragment StoreEntitySet="ActivityHelper">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FirstAidJournalModel" ZoomLevel="96">
+        <EntityTypeShape EntityType="FirstAidJournalModel.Area" Width="1.5" PointX="3" PointY="18.875" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.Event" Width="1.5" PointX="5.25" PointY="8.875" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.EventTreatment" Width="1.5" PointX="7.5" PointY="9.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.Injury" Width="1.5" PointX="3" PointY="8.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.Person" Width="1.5" PointX="3" PointY="4.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.Treatment" Width="1.5" PointX="5.25" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.TreatmentCategory" Width="1.5" PointX="3" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_Area" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="18.876152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="18.501152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="10.757920279622397" />
+          <ConnectorPoint PointX="5.25" PointY="10.757920279622397" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_Injury" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.547841796875" />
+          <ConnectorPoint PointX="5.25" PointY="9.547841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_EventTreatment_Event" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="10.740143229166666" />
+          <ConnectorPoint PointX="7.5" PointY="10.740143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_EventTreatment_Treatment" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="1.7401432291666659" />
+          <ConnectorPoint PointX="8.25" PointY="1.7401432291666659" />
+          <ConnectorPoint PointX="8.25" PointY="9.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Treatment_TreatmentCategory" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="5.25" PointY="1.9228417968749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_Person" ManuallyRouted="false" >
+          <ConnectorPoint PointX="4.5" PointY="5.7208968098958328" />
+          <ConnectorPoint PointX="6.2666032031249994" PointY="5.7208968098958328" />
+          <ConnectorPoint PointX="6.2666032031249994" PointY="8.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FirstAidJournalModel.Team" Width="1.5" PointX="0.75" PointY="7.375" Height="2.1725878906249996" />
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_Team" >
+          <ConnectorPoint PointX="2.25" PointY="7.9687500000000009" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.96875" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="7.9687500000000009" />
+          <ConnectorPoint PointX="5.72070140625" PointY="7.9687500000000009" />
+          <ConnectorPoint PointX="5.72070140625" PointY="8.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Person_Team" >
+          <ConnectorPoint PointX="1.5" PointY="7.375" />
+          <ConnectorPoint PointX="1.5" PointY="5.7208968098958328" />
+          <ConnectorPoint PointX="3" PointY="5.7208968098958328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FirstAidJournalModel.TeamMember" Width="1.5" PointX="3" PointY="11.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="FirstAidJournalModel.FK_TeamMember_Team" >
+          <ConnectorPoint PointX="1.2539053125000002" PointY="9.7398893229166656" />
+          <ConnectorPoint PointX="1.2539053125000002" PointY="12.8362939453125" />
+          <ConnectorPoint PointX="1.6998718229166669" PointY="12.8362939453125" />
+          <ConnectorPoint PointX="1.8665384895833335" PointY="12.8362939453125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="12.8362939453125" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="12.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="12.8362939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FirstAidJournalModel.Activity" Width="1.5" PointX="3" PointY="14.75" Height="2.5571907552083371" />
+        <EntityTypeShape EntityType="FirstAidJournalModel.ActivityHelper" Width="1.5" PointX="5.25" PointY="15" Height="1.9802864583333353" />
+        <AssociationConnector Association="FirstAidJournalModel.FK_Activity_Team" >
+          <ConnectorPoint PointX="1.7832051562500002" PointY="9.7398893229166656" />
+          <ConnectorPoint PointX="1.7832051562500002" PointY="16.220896809895834" />
+          <ConnectorPoint PointX="3" PointY="16.220896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_ActivityHelper_Activity" >
+          <ConnectorPoint PointX="4.5" PointY="16.086293945312498" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="16.086293945312498" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="16.086293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="16.086293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_Activity" >
+          <ConnectorPoint PointX="4.5" PointY="14.813460538461536" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="14.497386103560414" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="14.379534973362658" />
+          <ConnectorPoint PointX="4.9375" PointY="14.375960538461534" />
+          <ConnectorPoint PointX="4.9375" PointY="11.991663962727866" />
+          <ConnectorPoint PointX="5.25" PointY="11.991663962727866" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Event_ActivityHelper" >
+          <ConnectorPoint PointX="6" PointY="15" />
+          <ConnectorPoint PointX="6" PointY="13.162903645833332" />
+        </AssociationConnector>
+        <AssociationConnector Association="FirstAidJournalModel.FK_Person_Activity" >
+          <ConnectorPoint PointX="3.0011528461538495" PointY="14.75" />
+          <ConnectorPoint PointX="2.625" PointY="14.37384715384615" />
+          <ConnectorPoint PointX="2.625" PointY="7.5667936197916656" />
+          <ConnectorPoint PointX="3" PointY="7.1917936197916656" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountLogOff" xml:space="preserve">
+    <value>Log ud</value>
+  </data>
+  <data name="AccountLogOn" xml:space="preserve">
+    <value>Log ind</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Alder</value>
+  </data>
+  <data name="AllTeams" xml:space="preserve">
+    <value>Alle hold</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Førstehjælpslog</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Område</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Afbryd</value>
+  </data>
+  <data name="CommandCreate" xml:space="preserve">
+    <value>Opret</value>
+  </data>
+  <data name="CommandDelete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="CommandSave" xml:space="preserve">
+    <value>Gem</value>
+  </data>
+  <data name="EditEvent" xml:space="preserve">
+    <value>Redigér skade</value>
+  </data>
+  <data name="EnterAccountInformation" xml:space="preserve">
+    <value>Use the form below to create a new account.</value>
+  </data>
+  <data name="EventCreate" xml:space="preserve">
+    <value>Ny skade</value>
+  </data>
+  <data name="EventDetails" xml:space="preserve">
+    <value>Skade</value>
+  </data>
+  <data name="EventFinished" xml:space="preserve">
+    <value>Færdig</value>
+  </data>
+  <data name="EventPlural" xml:space="preserve">
+    <value>skader</value>
+  </data>
+  <data name="EventSingular" xml:space="preserve">
+    <value>skade</value>
+  </data>
+  <data name="EventsListTitle" xml:space="preserve">
+    <value>Skader</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Kvinde</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Køn</value>
+  </data>
+  <data name="GeneralAdd" xml:space="preserve">
+    <value>Tilføj</value>
+  </data>
+  <data name="GeneralCreate" xml:space="preserve">
+    <value>Opret ny</value>
+  </data>
+  <data name="GeneralDelete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="GeneralDetails" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="GeneralEdit" xml:space="preserve">
+    <value>Redigér</value>
+  </data>
+  <data name="Helper" xml:space="preserve">
+    <value>Behandler</value>
+  </data>
+  <data name="IfYouDontHaveLogin" xml:space="preserve">
+    <value>{0} if you don't have an account.</value>
+  </data>
+  <data name="Injury" xml:space="preserve">
+    <value>Skadetype</value>
+  </data>
+  <data name="LoginUnsuccessful" xml:space="preserve">
+    <value>Login was unsuccessful. Please correct the errors and try again.</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Mand</value>
+  </data>
+  <data name="MenuActivity" xml:space="preserve">
+    <value>Aktiviteter</value>
+  </data>
+  <data name="MenuArea" xml:space="preserve">
+    <value>Områder</value>
+  </data>
+  <data name="MenuEvent" xml:space="preserve">
+    <value>Skader</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="MenuInjury" xml:space="preserve">
+    <value>Skadetyper</value>
+  </data>
+  <data name="MenuPerson" xml:space="preserve">
+    <value>Personer</value>
+  </data>
+  <data name="MenuTeam" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="MenuTreatment" xml:space="preserve">
+    <value>Behandlinger</value>
+  </data>
+  <data name="MenuTreatmentCategory" xml:space="preserve">
+    <value>Kategorier</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Noter</value>
+  </data>
+  <data name="PasswordRequirements" xml:space="preserve">
+    <value>Adgangskoden skal mindst være {0} tegn lang.</value>
+  </data>
+  <data name="Performed" xml:space="preserve">
+    <value>Udført</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="PersonAreYouSure" xml:space="preserve">
+    <value>Er du sikker på at du vil slette denne person og alle registrerede skader?</value>
+  </data>
+  <data name="PersonCreate" xml:space="preserve">
+    <value>Opret ny person</value>
+  </data>
+  <data name="PersonDelete" xml:space="preserve">
+    <value>Slet person</value>
+  </data>
+  <data name="PersonEdit" xml:space="preserve">
+    <value>Redigér person</value>
+  </data>
+  <data name="PersonListTitle" xml:space="preserve">
+    <value>Personer</value>
+  </data>
+  <data name="PleaseEnterUsernameAndPassword" xml:space="preserve">
+    <value>Please enter user name and password.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SwitchTeam" xml:space="preserve">
+    <value>Skift</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="TeamActivate" xml:space="preserve">
+    <value>Aktivér</value>
+  </data>
+  <data name="TeamActive" xml:space="preserve">
+    <value>Aktivt</value>
+  </data>
+  <data name="TeamAreYouSure" xml:space="preserve">
+    <value>Er du sikker på, du vil slette dette hold?</value>
+  </data>
+  <data name="TeamCreate" xml:space="preserve">
+    <value>Opret nyt hold</value>
+  </data>
+  <data name="TeamDelete" xml:space="preserve">
+    <value>Slet hold</value>
+  </data>
+  <data name="TeamDetails" xml:space="preserve">
+    <value>Holddata</value>
+  </data>
+  <data name="TeamEdit" xml:space="preserve">
+    <value>Redigér hold</value>
+  </data>
+  <data name="TeamIsActive" xml:space="preserve">
+    <value>Dette er dit aktive hold</value>
+  </data>
+  <data name="TeamIsPending" xml:space="preserve">
+    <value>Din ansøgning om medlemsskab afventer bekræftelse</value>
+  </data>
+  <data name="TeamJoin" xml:space="preserve">
+    <value>Ansøg om medlemsskab</value>
+  </data>
+  <data name="TeamMemberConfirm" xml:space="preserve">
+    <value>Bekræft</value>
+  </data>
+  <data name="TeamMemberDemote" xml:space="preserve">
+    <value>Degradér</value>
+  </data>
+  <data name="TeamMemberKick" xml:space="preserve">
+    <value>Udeluk</value>
+  </data>
+  <data name="TeamMemberPromote" xml:space="preserve">
+    <value>Forfrem til holdleder</value>
+  </data>
+  <data name="TeamMembers" xml:space="preserve">
+    <value>Medlemmer</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Holdnavn</value>
+  </data>
+  <data name="Timestamp" xml:space="preserve">
+    <value>Tidspunkt</value>
+  </data>
+  <data name="Treatments" xml:space="preserve">
+    <value>Behandling</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Velkommen</value>
+  </data>
+  <data name="YourTeams" xml:space="preserve">
+    <value>Dine hold</value>
+  </data>
+</root>

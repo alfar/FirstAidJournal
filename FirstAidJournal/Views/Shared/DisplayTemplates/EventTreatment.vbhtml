@@ -1,0 +1,2 @@
+﻿@ModelType FirstAidJournal.EventTreatment
+<div>@Model.Treatment.TreatmentCategory.Name -> @Model.Treatment.Name <a href="@Url.Action("Delete", "EventTreatment", New With {.id = Model.Id})"><img src="/Content/Delete.png" height="16" width="16" alt="@Resources.FirstAidJournal.GeneralDelete" title="@Resources.FirstAidJournal.GeneralDelete" align="absmiddle" /></a></div>

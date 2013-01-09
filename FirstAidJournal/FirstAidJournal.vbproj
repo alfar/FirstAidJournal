@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08A1A8F8-8FD8-4DBC-9D00-A6CE41CCC77B}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FirstAidJournal</RootNamespace>
+    <AssemblyName>FirstAidJournal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>FirstAidJournal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>FirstAidJournal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PublishDatabases>false</PublishDatabases>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\FirstAidJournal.designer.vb">
+      <DependentUpon>FirstAidJournal.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FirstAidJournal.da.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FirstAidJournal.da.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FirstAidJournal.en.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FirstAidJournal.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.vb" />
+    <Compile Include="Controllers\ActivityController.vb" />
+    <Compile Include="Controllers\ActivityHelperController.vb" />
+    <Compile Include="Controllers\AreaController.vb" />
+    <Compile Include="Controllers\EventController.vb" />
+    <Compile Include="Controllers\EventTreatmentController.vb" />
+    <Compile Include="Controllers\InjuryController.vb" />
+    <Compile Include="Controllers\PersonController.vb" />
+    <Compile Include="Controllers\TeamController.vb" />
+    <Compile Include="Controllers\TreatmentCategoryController.vb" />
+    <Compile Include="Controllers\TreatmentController.vb" />
+    <Compile Include="DAL\FirstAidJournalModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FirstAidJournalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ProfileHelper.vb" />
+    <Compile Include="Models\AccountModels.vb" />
+    <Compile Include="Models\UserTeam.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\FirstAidJournal.da.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FirstAidJournal.da.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FirstAidJournal.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FirstAidJournal.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\FirstAidJournal.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FirstAidJournal.en.designer.vb</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DAL\FirstAidJournalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FirstAidJournalModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Content\AreaBackground.png" />
+    <Content Include="Content\Delete.png" />
+    <Content Include="Content\Dot.png" />
+    <Content Include="Content\Female.png" />
+    <Content Include="Content\Male.png" />
+    <Content Include="Content\SelectedDot.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Event\Index.vbhtml" />
+    <Content Include="Views\Injury\Index.vbhtml" />
+    <Content Include="Views\Injury\Details.vbhtml" />
+    <Content Include="Views\Injury\Create.vbhtml" />
+    <Content Include="Views\Injury\Edit.vbhtml" />
+    <Content Include="Views\Injury\Delete.vbhtml" />
+    <Content Include="Views\TreatmentCategory\Index.vbhtml" />
+    <Content Include="Views\TreatmentCategory\Details.vbhtml" />
+    <Content Include="Views\TreatmentCategory\Create.vbhtml" />
+    <Content Include="Views\TreatmentCategory\Edit.vbhtml" />
+    <Content Include="Views\TreatmentCategory\Delete.vbhtml" />
+    <Content Include="Views\Treatment\Index.vbhtml" />
+    <Content Include="Views\Treatment\Details.vbhtml" />
+    <Content Include="Views\Treatment\Create.vbhtml" />
+    <Content Include="Views\Treatment\Edit.vbhtml" />
+    <Content Include="Views\Treatment\Delete.vbhtml" />
+    <Content Include="Views\Person\Index.vbhtml" />
+    <Content Include="Views\Person\Create.vbhtml" />
+    <Content Include="Views\Person\Edit.vbhtml" />
+    <Content Include="Views\Person\Delete.vbhtml" />
+    <Content Include="Views\Area\Index.vbhtml" />
+    <Content Include="Views\Area\Details.vbhtml" />
+    <Content Include="Views\Area\Create.vbhtml" />
+    <Content Include="Views\Area\Edit.vbhtml" />
+    <Content Include="Views\Area\Delete.vbhtml" />
+    <Content Include="Views\Event\Create.vbhtml" />
+    <Content Include="Views\EventTreatment\Index.vbhtml" />
+    <Content Include="Views\EventTreatment\Details.vbhtml" />
+    <Content Include="Views\EventTreatment\Create.vbhtml" />
+    <Content Include="Views\EventTreatment\Edit.vbhtml" />
+    <Content Include="Views\EventTreatment\Delete.vbhtml" />
+    <Content Include="Views\Event\Details.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\EventTreatment.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\AreaSelector.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\CoordinatesSelector.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\TreatmentSelector.vbhtml" />
+    <Content Include="Views\Person\_CreatePerson.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Gender.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Gender.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Age.vbhtml" />
+    <Content Include="Views\Event\_AddTreatment.vbhtml" />
+    <Content Include="Views\Treatment\Statistics.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GenderText.vbhtml" />
+    <Content Include="Views\Event\Edit.vbhtml" />
+    <Content Include="Views\Account\ChangePassword.vbhtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.vbhtml" />
+    <Content Include="Views\Account\LogOn.vbhtml" />
+    <Content Include="Views\Account\Register.vbhtml" />
+    <Content Include="Views\Shared\_Logon.vbhtml" />
+    <Content Include="Views\Team\Index.vbhtml" />
+    <Content Include="Views\Team\Details.vbhtml" />
+    <Content Include="Views\Team\Create.vbhtml" />
+    <Content Include="Views\Team\Edit.vbhtml" />
+    <Content Include="Views\Team\Delete.vbhtml" />
+    <Content Include="Views\Team\All.vbhtml" />
+    <Content Include="Views\Person\AutoComplete.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Person.vbhtml" />
+    <Content Include="Views\Activity\Index.vbhtml" />
+    <Content Include="Views\Activity\Create.vbhtml" />
+    <Content Include="Views\Activity\Details.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ActivityHelper.vbhtml" />
+    <Content Include="Views\Activity\Home.vbhtml" />
+    <Content Include="Views\Activity\PickActivityHelper.vbhtml" />
+    <Content Include="Views\Activity\Edit.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Date.vbhtml" />
+    <Content Include="Views\Event\Start.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Views\Shared\Error.vbhtml" />
+    <Content Include="Views\Shared\_Layout.vbhtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57913</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,1 @@
+﻿<img src="/Content/@(If(Model = 1, "Male", "Female")).png" height="32" width="32" alt="@(If(Model = 1, Resources.FirstAidJournal.Male, Resources.FirstAidJournal.Female))" title="@(If(Model = 1, Resources.FirstAidJournal.Male, Resources.FirstAidJournal.Female))" class="gender" />

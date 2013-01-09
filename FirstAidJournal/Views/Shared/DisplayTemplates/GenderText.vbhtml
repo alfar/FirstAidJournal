@@ -1,0 +1,1 @@
+﻿@(If(Model = 1, Resources.FirstAidJournal.Male, Resources.FirstAidJournal.Female))
